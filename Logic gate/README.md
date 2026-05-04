@@ -1,4 +1,4 @@
-# 🚀 Day 4: All Gates Combined Design
+All Gates Combined Design
 
 After implementing individual logic gates, this project integrates all of them into a single Verilog module.
 
