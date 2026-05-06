@@ -115,8 +115,4 @@ The project demonstrates how a simple logic function is mapped into actual hardw
 
 ---
 
-## 👨‍💻 Author
 
-**Nishanth E**
-
----
