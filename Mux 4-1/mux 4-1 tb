@@ -1,0 +1,43 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06.05.2026 18:12:49
+// Design Name: 
+// Module Name: tb_mux_4to1
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_mux_4to1(
+
+    );
+    reg a,b,c,d;
+    reg s0,s1;
+    wire out;
+    
+    mux_4to1 uut(.i0(a),.i1(b),.i2(c),.i3(d),.s0(s0),.s1(s1),.out(out));
+    
+    initial begin 
+    a=1;b=0;c=1;d=0;
+    $monitor ("time=%t a=%d b=%d c=%d d=%d s0=%d s1=%d out=%d", $time,a,b,c,d,s0,s1,out);
+    s0=0;s1=0;
+    #10 s0=0;s1=1;
+    #10 s0=1;s1=0;
+    #10 s0=1;s1=1;
+    #10 $finish;
+    end
+
+    
+endmodule
