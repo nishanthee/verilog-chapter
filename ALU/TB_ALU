@@ -1,0 +1,81 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 08.05.2026 10:28:25
+// Design Name: 
+// Module Name: tb_alu
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_alu(
+
+    );
+    reg [3:0]a;
+    reg[3:0]b;
+    reg[2:0]opcode;
+    wire [3:0]y;
+    wire carry_out;
+    
+    
+    alu uut(.a(a),.b(b),.opcode(opcode),.y(y),.carry_out(carry_out));
+    
+    initial begin
+    $monitor("Time=%0t | opcode=%b | a=%0d | b=%0d | y=%0d | carry=%b",
+                  $time, opcode, a, b, y, carry_out);
+
+     // addition 
+     a=5;
+     b=5;
+     opcode = 3'b000;
+     #10
+    //subtraction 8-2
+    a= 8;
+    b = 2;
+    opcode =3'b001;
+    #10
+    // AND 12 & 10
+        a = 12;
+        b = 10;
+        opcode = 3'b010;
+        #10;
+
+        // OR 12 | 10
+        a = 12;
+        b = 10;
+        opcode = 3'b011;
+        #10;
+
+        // XOR 12 ^ 10
+        a = 12;
+        b = 10;
+        opcode = 3'b100;
+        #10;
+
+        // Multiplication 3 * 2
+        a = 3;
+        b = 2;
+        opcode = 3'b101;
+        #10;
+
+        // Division 8 / 2
+        a = 8;
+        b = 2;
+        opcode = 3'b110;
+        #10;
+        $finish;
+    
+    end
+endmodule
