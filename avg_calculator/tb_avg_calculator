@@ -1,0 +1,54 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 11.05.2026 22:42:18
+// Design Name: 
+// Module Name: tb_avg_calculator
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_avg_calculator(
+
+    );
+    reg[7:0]a,b,c,d;
+    wire[7:0] avg;
+    
+    avg_calculator dut( .a(a),.b(b),.c(c),.d(d),.avg(avg));
+    
+    initial begin
+    // test case 1
+    a= 10;
+    b=20;
+    c=30;
+    d= 40;
+    #10;
+    
+    //test case 2
+    a=12;
+    b=12;
+    c=13;
+    d=15;
+    #10;
+    
+    //tets case 3
+    a=22;
+    b=33;
+    c=44;
+    d=55;
+    #10;
+    $finish;
+    end
+endmodule
