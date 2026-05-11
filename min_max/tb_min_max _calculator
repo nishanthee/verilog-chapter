@@ -1,0 +1,48 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 11.05.2026 16:31:50
+// Design Name: 
+// Module Name: tb_min_max
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_min_max(
+
+    );
+   reg [7:0]a;
+reg [7:0]b;
+wire [7:0] max;
+wire [7:0] min;
+
+min_max dut(
+.a(a),.b(b),.max(max),.min(min));
+
+
+initial begin
+$monitor ("a=%d b=%d max=%d min=%d",a,b,max,min);
+a = 10 ;
+b = 20;
+#10;
+a=50;
+b=10;
+#10;
+a=10;
+b=10;
+#10;
+#10 $finish;
+end
+endmodule
