@@ -1,0 +1,45 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 11.05.2026 21:07:42
+// Design Name: 
+// Module Name: tb_bit8_adder
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_bit8_adder(
+
+    );
+    reg[7:0]a;
+    reg[7:0]b;
+    wire[7:0] sum;
+    
+     bit8_adder dut(.a(a),.b(b),.sum(sum));
+     
+     initial begin
+     $monitor( "a=%d b=%b sum=%d",a,b,sum);
+     a= 10;
+     b=20;
+     #10;
+     a=20;
+     b=30;
+     #10;
+     a=25;
+     b=45;
+     #10;
+     $finish;
+     end
+endmodule
