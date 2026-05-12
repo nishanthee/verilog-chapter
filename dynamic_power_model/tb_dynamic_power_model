@@ -1,0 +1,80 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 12.05.2026 19:56:36
+// Design Name: 
+// Module Name: tb_dynamic_power_model
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module tb_dynamic_power_model(
+
+    );
+    
+    reg clk;
+    reg reset;
+    reg a;
+    reg b;
+    wire y;
+    
+    dynamic_power_model dut(.clk(clk),
+        .reset(reset),
+        .a(a),
+        .b(b),
+        .y(y));
+        
+         always #5 clk = ~clk;
+         
+           initial
+    begin
+    
+      $monitor("Time=%0t | reset=%b | a=%b | b=%b | y=%b",
+                  $time, reset, a, b, y);
+        // Initialize signals
+        clk = 0;
+        reset = 1;
+        a = 0;
+        b = 0;
+
+        // Apply reset
+        #10;
+        reset = 0;
+
+        // Test Case 1
+        #10;
+        a = 1; b = 0;
+
+        // Test Case 2
+        #10;
+         a = 1; b = 1;
+
+        // Test Case 3
+        #10;
+         a = 0; b = 1;
+
+        // Test Case 4
+        #10;
+         a = 0; b = 0;
+
+        // Test Case 5
+        #10;
+         a = 1; b = 1;
+
+        // End simulation
+        #20;
+        $finish;
+        end
+endmodule
